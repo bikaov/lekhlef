@@ -1,0 +1,524 @@
+<!DOCTYPE HTML>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <title>مكتبة لخلف - الصفحة الرئيسية</title>
+    <link rel="stylesheet" href="/static/assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="/static/assets/css/noscript.css" /></noscript>
+    <style>
+        :root {
+            --primary-color: #2C3E50;
+            --secondary-color: #4CAF50;
+            --accent-color: #3498DB;
+            --gold-color: #FFD700;
+            --light-bg: #F8F9FA;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #34495E 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" fill="rgba(255,255,255,0.05)"><path d="M500 50L550 25L600 50L650 25L700 50L750 25L800 50L850 25L900 50L950 25L1000 50L1000 100L0 100L0 50Z"/></svg>');
+            background-size: cover;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-title {
+            font-size: 3.5em;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.4em;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #f0f0f0;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .feature-icon {
+            font-size: 3em;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        .feature-title {
+            font-size: 1.4em;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        
+        .stats-section {
+            background: var(--light-bg);
+            padding: 4rem 0;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+        
+        .stat-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: var(--secondary-color);
+            display: block;
+        }
+        
+        .stat-label {
+            color: #666;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .quick-actions {
+            padding: 4rem 0;
+            background: white;
+        }
+        
+        .action-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .action-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, var(--secondary-color), #45a049);
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
+        }
+        
+        .action-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(76, 175, 80, 0.4);
+            color: white;
+        }
+        
+        .action-btn i {
+            margin-left: 0.5rem;
+            font-size: 1.2em;
+        }
+        
+        .news-section {
+            background: var(--light-bg);
+            padding: 4rem 0;
+        }
+        
+        .news-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            margin-bottom: 2rem;
+            border-right: 4px solid var(--accent-color);
+        }
+        
+        .news-title {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.3em;
+        }
+        
+        .contact-info {
+            background: var(--primary-color);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+        
+        .contact-item {
+            margin: 1rem 0;
+            font-size: 1.1em;
+        }
+        
+        .floating-books {
+            position: absolute;
+            font-size: 2em;
+            opacity: 0.1;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .book-1 { top: 20%; left: 10%; animation-delay: 0s; }
+        .book-2 { top: 60%; left: 80%; animation-delay: 2s; }
+        .book-3 { top: 40%; left: 85%; animation-delay: 4s; }
+        .book-4 { top: 70%; left: 15%; animation-delay: 1s; }
+        .book-5 { top: 30%; left: 75%; animation-delay: 3s; }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--primary-color);
+            font-size: 2.2em;
+            font-weight: 700;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #666;
+            font-size: 1.2em;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .badge {
+            background: var(--gold-color);
+            color: var(--primary-color);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.8em;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5em;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1em;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .action-buttons {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body class="is-preload">
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="floating-books book-1">📚</div>
+        <div class="floating-books book-2">📖</div>
+        <div class="floating-books book-3">🎓</div>
+        <div class="floating-books book-4">✏️</div>
+        <div class="floating-books book-5">📝</div>
+        
+        <div class="inner hero-content">
+            <span class="badge">نظام إدارة مكتبات متكامل</span>
+            <h1 class="hero-title">مكتبة لخلف</h1>
+            <p class="hero-subtitle">بوابتك إلى عالم المعرفة والإدارة الذكية للمكتبات</p>
+            
+            <div class="action-buttons" style="max-width: 500px; margin: 0 auto;">
+                <a href="/pos" class="action-btn">
+                    💵 بدء عملية بيع
+                </a>
+                <a href="/items" class="action-btn" style="background: linear-gradient(135deg, var(--accent-color), #2980B9);">
+                    📦 إدارة المخزون
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="wrapper style1">
+        <div class="inner">
+            <h2 class="section-title">مميزات النظام</h2>
+            <p class="section-subtitle">نوفر لك جميع الأدوات التي تحتاجها لإدارة مكتبتك بكل كفاءة واحترافية</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <span class="feature-icon">💼</span>
+                    <h3 class="feature-title">إدارة مخزون ذكية</h3>
+                    <p>تتبع المخزون، تنبيهات إعادة الطلب، وإدارة الفئات بشكل منظم وسهل</p>
+                </div>
+                
+                <div class="feature-card">
+                    <span class="feature-icon">💰</span>
+                    <h3 class="feature-title">نقطة بيع متطورة</h3>
+                    <p>نظام بيع سريع وسهل مع إدارة العملاء وتوليد الفواتير تلقائياً</p>
+                </div>
+                
+                <div class="feature-card">
+                    <span class="feature-icon">📊</span>
+                    <h3 class="feature-title">تقارير وتحليلات</h3>
+                    <p>تقارير شاملة عن المبيعات، الأرباح، وأداء المنتجات المختلفة</p>
+                </div>
+                
+                <div class="feature-card">
+                    <span class="feature-icon">👥</span>
+                    <h3 class="feature-title">إدارة العملاء</h3>
+                    <p>سجل كامل للعملاء، تتبع المشتريات، وتقديم خدمات متميزة</p>
+                </div>
+                
+                <div class="feature-card">
+                    <span class="feature-icon">🚚</span>
+                    <h3 class="feature-title">إدارة الموردين</h3>
+                    <p>تنظيم علاقاتك مع الموردين وتتبع أوامر الشراء بسهولة</p>
+                </div>
+                
+                <div class="feature-card">
+                    <span class="feature-icon">🔒</span>
+                    <h3 class="feature-title">آمن وموثوق</h3>
+                    <p>نظام آمن مع نسخ احتياطي تلقائي وحماية للبيانات</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="inner">
+            <h2 class="section-title">إحصائيات المكتبة</h2>
+            
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number" id="totalItems">0</span>
+                    <span class="stat-label">إجمالي الأصناف</span>
+                </div>
+                
+                <div class="stat-item">
+                    <span class="stat-number" id="totalCustomers">0</span>
+                    <span class="stat-label">عميل مسجل</span>
+                </div>
+                
+                <div class="stat-item">
+                    <span class="stat-number" id="todaySales">0</span>
+                    <span class="stat-label">مبيعات اليوم</span>
+                </div>
+                
+                <div class="stat-item">
+                    <span class="stat-number" id="lowStock">0</span>
+                    <span class="stat-label">يحتاج إعادة طلب</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Actions -->
+    <section class="quick-actions">
+        <div class="inner">
+            <h2 class="section-title">الوصول السريع</h2>
+            <p class="section-subtitle">الوصول إلى أهم الأقسام في نظام إدارة المكتبة</p>
+            
+            <div class="action-buttons">
+                <a href="/pos" class="action-btn">
+                    💵 نقطة البيع
+                </a>
+                <a href="/items" class="action-btn" style="background: linear-gradient(135deg, #FF6B6B, #EE5A52);">
+                    📦 إدارة المخزون
+                </a>
+                <a href="/purchases" class="action-btn" style="background: linear-gradient(135deg, #FFA726, #FF9800);">
+                    🧾 المشتريات
+                </a>
+                <a href="/customers" class="action-btn" style="background: linear-gradient(135deg, #AB47BC, #9C27B0);">
+                    👥 إدارة العملاء
+                </a>
+                <a href="/invoices" class="action-btn" style="background: linear-gradient(135deg, #26C6DA, #00ACC1);">
+                    🧮 الفواتير
+                </a>
+                <a href="/reports" class="action-btn" style="background: linear-gradient(135deg, #78909C, #607D8B);">
+                    📊 التقارير
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- News & Updates -->
+    <section class="news-section">
+        <div class="inner">
+            <h2 class="section-title">آخر التحديثات والأخبار</h2>
+            
+            <div class="news-card">
+                <h3 class="news-title">🎉 نظام إدارة المكتبات الجديد</h3>
+                <p>نظام متكامل لإدارة جميع عمليات المكتبة من مبيعات، مشتريات، مخزون، وعملاء. تم تصميم النظام ليكون سهل الاستخدام وفعال في إدارة أعمالك.</p>
+                <small>تم النشر: اليوم</small>
+            </div>
+            
+            <div class="news-card">
+                <h3 class="news-title">📱 واجهة مستخدم متجاوبة</h3>
+                <p>تم تطوير واجهة مستخدم متكاملة تعمل على جميع الأجهزة من حواسيب، أجهزة لوحية، وهواتف ذكية.</p>
+                <small>تم النشر: هذا الأسبوع</small>
+            </div>
+            
+            <div class="news-card">
+                <h3 class="news-title">🔔 نظام تنبيهات المخزون</h3>
+                <p>نظام تنبيهات ذكي يخطرك عندما تصل كميات المنتجات إلى الحد الأدنى المطلوب لإعادة الطلب.</p>
+                <small>تم النشر: هذا الشهر</small>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Info -->
+    <section class="contact-info">
+        <div class="inner">
+            <h2 style="margin-bottom: 2rem; font-size: 2em;">📚 مكتبة لخلف</h2>
+            
+            <div class="contact-item">
+                <strong>📍 العنوان:</strong> شارع المعرفة، وسط المدينة
+            </div>
+            
+            <div class="contact-item">
+                <strong>📞 الهاتف:</strong> 0123-456-789
+            </div>
+            
+            <div class="contact-item">
+                <strong>🕒 أوقات العمل:</strong> 8:00 صباحاً - 8:00 مساءً
+            </div>
+            
+            <div class="contact-item">
+                <strong>📧 البريد الإلكتروني:</strong> info@maktaba-lekhlef.com
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // تحميل الإحصائيات من النظام
+        async function loadStats() {
+            try {
+                // في التطبيق الحقيقي، ستأتي هذه البيانات من الخادم
+                // هنا نستخدم بيانات وهمية للعرض
+                document.getElementById('totalItems').textContent = '1,247';
+                document.getElementById('totalCustomers').textContent = '856';
+                document.getElementById('todaySales').textContent = '2,450 د.ج';
+                document.getElementById('lowStock').textContent = '23';
+            } catch (error) {
+                console.error('Error loading stats:', error);
+            }
+        }
+        
+        // تأثير العد المتزايد للأرقام
+        function animateNumbers() {
+            const counters = document.querySelectorAll('.stat-number');
+            const speed = 200;
+            
+            counters.forEach(counter => {
+                const animate = () => {
+                    const value = +counter.getAttribute('data-target');
+                    const data = +counter.innerText.replace(/[^0-9]/g, '');
+                    
+                    const time = value / speed;
+                    if (data < value) {
+                        counter.innerText = Math.ceil(data + time).toLocaleString();
+                        setTimeout(animate, 1);
+                    } else {
+                        counter.innerText = value.toLocaleString();
+                    }
+                }
+                
+                animate();
+            });
+        }
+        
+        // تهيئة الصفحة
+        document.addEventListener('DOMContentLoaded', function() {
+            loadStats();
+            
+            // إعداد أهداف الأرقام للعد
+            setTimeout(() => {
+                document.querySelectorAll('.stat-number').forEach(el => {
+                    const current = el.textContent;
+                    if (current.includes('د.ج')) {
+                        el.setAttribute('data-target', 2450);
+                    } else {
+                        el.setAttribute('data-target', parseInt(current.replace(/,/g, '')));
+                    }
+                    el.textContent = '0';
+                });
+                animateNumbers();
+            }, 1000);
+            
+            // تأثير التمرير السلس للروابط
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+        
+        // تأثير الكتابة للنص الترحيبي
+        function typeWriter(element, text, speed = 100) {
+            let i = 0;
+            element.innerHTML = '';
+            
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+            
+            type();
+        }
+    </script>
+
+</body>
+</html>
